@@ -4,7 +4,7 @@ import json
 import streamlit as st
 
 st.set_page_config("Drug Toxicity Classifier")
-st.title("Drug Toxicity")
+st.title("Drug Toxicity Classifier")
 model=tf.keras.models.load_model("model_clintox-0.9130_us.h5")
 with open("vocab_tox.json", "r") as f:
     voc=json.load(f)
@@ -40,5 +40,5 @@ drug=st.text_input("Enter Drug Smiles")
 if st.button("Check"):
     p, pred=predict(drug)
     pr=round(float(pred[0][1])*100, 2)
-    sts="Safe" if pr>0.6 else "Unsafe"
+    sts="Safe" if pr>60 else "Unsafe"
     st.metric("Safety", sts, delta=pr, delta_color='normal')
