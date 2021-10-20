@@ -39,4 +39,6 @@ drug=st.text_input("Enter Drug Smiles")
 
 if st.button("Check"):
     p, pred=predict(drug)
-    st.metric("Safety", round(float(pred[0][1])*100, 2), delta=round(float(pred[0][1])*100-50, 2), delta_color='normal')
+    pr=round(float(pred[0][1])*100, 2)
+    sts="Safe" if pr>0.6 else "Unsafe"
+    st.metric("Safety", , delta=pr, delta_color='normal')
