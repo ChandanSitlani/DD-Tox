@@ -2,6 +2,8 @@ import tensorflow as tf
 import numpy as np
 import json
 import streamlit as st
+import pandas as pd
+import time
 
 st.set_page_config("Drug Toxicity Classifier")
 st.title("Drug Toxicity Classifier")
@@ -42,3 +44,15 @@ if st.button("Check"):
     pr=round(float(pred[0][1])*100, 2)
     sts="Safe" if pr>60 else "Unsafe"
     st.metric("Safety", sts, delta=round(pr-60, 2), delta_color='normal')
+    
+table=[
+    ["H2S04", "OS(=O)(=O)O"],
+    ["Aspirin", "CC(=O)NC1=CC=C(C=C1)O"],
+    ["Paracetamol", "CC1=C(C(CCC1)(C)C)C=CC(=CC=CC(=CC(=O)O)C)C"],
+    ["Ozone", "[O-][O+]=O"]
+    ]
+dat=pd.DataFrame(table, columns=["Drug", "SMILES"])
+
+st.text("Example")
+st.table(dat)
+
