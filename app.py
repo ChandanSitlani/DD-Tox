@@ -28,7 +28,10 @@ def predict(d):
   oh=one_hot(p)
   pred=model.predict(oh)
   p=np.argmax(pred, axis=-1)
-  return p
+  return p, pred
 
 drug=st.text_input("Enter Drug Smiles")
-predict(drug)
+
+if st.button("Check"):
+    p, pred=predict(drug)
+    st.metric("Safety", round(float(pred[0][1])*100, 2), delta=round(float(pred[0][1])*100-50, 2), delta_color='normal')
