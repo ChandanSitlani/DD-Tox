@@ -41,4 +41,4 @@ if st.button("Check"):
     p, pred=predict(drug)
     pr=round(float(pred[0][1])*100, 2)
     sts="Safe" if pr>60 else "Unsafe"
-    st.metric("Safety", sts, delta=pr, delta_color='normal')
+    st.metric("Safety", sts, delta=50-pr, delta_color='normal')
