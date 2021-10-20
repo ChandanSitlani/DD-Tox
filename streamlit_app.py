@@ -5,7 +5,7 @@ import streamlit as st
 import pandas as pd
 import time
 
-st.set_page_config("Drug Toxicity Classifier")
+st.set_page_config("Drug Toxicity Classifier", page_icon="icon.jfif")
 st.title("Drug Toxicity Classifier")
 model=tf.keras.models.load_model("model_clintox-0.9130_us.h5")
 with open("vocab_tox.json", "r") as f:
@@ -55,4 +55,6 @@ dat=pd.DataFrame(table, columns=["Drug", "SMILES"])
 
 st.text("Example")
 st.table(dat)
+
+
 
