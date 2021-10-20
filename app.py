@@ -13,7 +13,10 @@ with open("vocab_tox.json", "r") as f:
 def encode(row):
   r2=row
   for i in range(len(row)):
-    r2[i]=voc[row[i]]
+    try:
+        r2[i]=voc[row[i]]
+    except:
+        r2[i]=1
   return r2
 def one_hot(x):
   x3d=np.zeros((x.shape[0], x.shape[1], len(voc)+1))
