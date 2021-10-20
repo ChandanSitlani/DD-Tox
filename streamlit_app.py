@@ -50,7 +50,7 @@ if st.button("Check"):
 table=[
     ["H2S04", "OS(=O)(=O)O"],
     ["Aspirin", "CC(=O)OC1=CC=CC=C1C(=O)O"],
-    ["Paracetamol", "CC1=C(C(CCC1)(C)C)C=CC(=CC=CC(=CC(=O)O)C)C"],
+    ["Paracetamol", "CC(=O)NC1=CC=C(C=C1)O"],
     ["Ozone", "[O-][O+]=O"]
     ]
 dat=pd.DataFrame(table, columns=["Drug", "SMILES"])
