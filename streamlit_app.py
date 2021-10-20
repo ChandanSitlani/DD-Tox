@@ -43,6 +43,8 @@ if st.button("Check"):
     p, pred=predict(drug)
     pr=round(float(pred[0][1])*100, 2)
     sts="Safe" if pr>60 else "Unsafe"
+    if sts=="Safe":
+        st.balloons()
     st.metric("Safety", sts, delta=round(pr-60, 2), delta_color='normal')
     
 table=[
