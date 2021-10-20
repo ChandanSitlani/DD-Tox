@@ -3,11 +3,13 @@ import numpy as np
 import json
 import streamlit as st
 
+st.set_page_config("Drug Toxicity Classifier")
 st.title("Drug Toxicity")
 model=tf.keras.models.load_model("model_clintox-0.9130_us.h5")
 with open("vocab_tox.json", "r") as f:
     voc=json.load(f)
     
+
 def encode(row):
   r2=row
   for i in range(len(row)):
